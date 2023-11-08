@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app">
+        
+    </div>
+    <script>
+        const vm = Vue.createApp({
+            data() { 
+                return {
+                    attr: "src",
+                    img: "https://picsum.photos/200/300"
+                };
+            },
+            //v-bind es una directiva que permite enlazar el valor de un atributo a una expresion
+            template: `<img v-bind:[attr]=img>`
+        }).mount("#app");
+        console.log(vm);
+    </script>
+</body>
+</html>
