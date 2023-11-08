@@ -7,14 +7,17 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <div id="app">{{ text }}</div>
+    <div id="app"></div>
     <script>
         const vm = Vue.createApp({
-            data() { //siempre retorna un objeto json
+            data() { 
                 return {
-                    text: "Hola vue"
+                    text: "<p>Hola vue<p>"
                 };
-            }
+            },
+            template: `<div v-html="text"></div>` // v-text es una directiva
+            //v-once hace que el texto no se actualice
+            //v-html hace que el texto se interprete como html
         }).mount("#app");
         console.log(vm);
     </script>
