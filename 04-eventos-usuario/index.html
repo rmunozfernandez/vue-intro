@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    text: "Counter",
+                    subtext: "Submit",
+                    counter: 0,
+                    evt: "submit",
+                };
+            },
+            // Objeto con los metodos que se pueden ejecutar en el template
+            methods: {
+                increment() {
+                    this.counter++;
+                },
+                submit(e) {
+                    // console.log(e);
+                    //e.preventDefault hace que no se recargue la pagina
+                    e.preventDefault();
+                    this.counter++;
+                },
+            },
+            //template: `<button v-on:click="increment" v-text="counter"></button>`
+            // template: `<form v-on:submit="submit"><button v-text="counter"></button></form>`
+            template: `<form v-on:[evt]="submit"><button v-text="counter"></button></form>`
+        }).mount("#app");
+    </script>
+</body>
+</html>
