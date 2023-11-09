@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return {
+                    text: "Hola Vue"
+                };
+            },
+            /* methods:{
+                input(e){
+                    console.log(e.target.value);
+                    this.text = e.target.value;
+                }
+            }, */
+            /* template: `
+                <p>{{ text }}</p>
+                <input 
+                    type="text" 
+                    @input="input"
+                    :value="text"
+                />
+            ` */
+            // v-on se puede resumir en @ y v-bind en :
+            // atributos -> :
+            // eventos -> @
+            template: `
+                <p>{{ text }}</p>
+                <input 
+                    type="text" 
+                    v-model="text"
+                />
+            `
+        }).mount("#app");
+    </script>
+</body>
+</html>
