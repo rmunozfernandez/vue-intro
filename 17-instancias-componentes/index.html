@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    text: 'Hi bro'
+                };
+            },
+            template: `<v-button ref="elemento" :label="text"></v-button>`
+        });
+
+        app.component('v-button', {
+            props: ['label'],
+            template: `<button>{{ label }}</button>`
+        });
+
+        const vm = app.mount('#app');
+        // console.log(vm.$root);
+        // console.log(vm.$el);
+        // console.log(vm.$refs.elemento);
+        console.log(vm.$props);
+    </script>
+</body>
+</html>
